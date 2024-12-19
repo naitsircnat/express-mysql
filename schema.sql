@@ -42,11 +42,11 @@ CREATE TABLE Sales(
   employee_id INT,
   customer_id INT,
   quantity INT,
-  sale_data DATE,
+  sale_date DATE,
   FOREIGN KEY (product_id) REFERENCES Products(product_id),
   FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
-  FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
-)
+  FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
 
 CREATE TABLE EmployeeCustomer(
   employee_id INT,
@@ -54,15 +54,15 @@ CREATE TABLE EmployeeCustomer(
   PRIMARY KEY (employee_id, customer_id),
   FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
   FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
-)
+);
 
 CREATE TABLE EmployeeProduct(
   employee_id INT,
   product_id INT,
-  PRIMARY KEY (employee_id, customer_id),
+  PRIMARY KEY (employee_id, product_id),
   FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
-  FOREIGN KEY (product_id) REFERENCES Products(products_id)
-)
+  FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
 
 
 
